@@ -1,0 +1,20 @@
+<% @subscriber_users_permits.each do |permit|%>
+<% permitid = permit.id %>
+<fieldset>
+<h3>permit Title:<%= "#{permit.title}"%></h3>
+<p>permit ID <%= "#{permitid}" %></p>
+<% updated_at= Time.new("#{permit.updated_at}")%>
+<p>permit Updated at:<%= updated_at.strftime("Updated on %m/%d/%Y, at %I:%M%p") %></p>
+<% created_at= Time.new("#{permit.created_at}")%>
+<p>permit Created at:<%= created_at.strftime("Created on %m/%d/%Y, at %I:%M%p") %></p>
+<p>permit Belongs To User ID: <%= "#{permit.user_id}"%>
+<%permit.tasks.each do |task|%>
+    <h4>task title:<%= "#{task.title}"%></h4>
+    <% end %>
+<%permit.permit_tasks.each do |permit_task|%>
+    <h4>task Title: <%= "#{permit_task.task.title}"%></h4>
+    <h4>task's quantity: <%="#{permit_task.quantity}"%></h4>
+    <% end %>
+<% end %>
+</fieldset>
+ <p><%= will_paginate @subscriber_users_permits %><p>

@@ -1,0 +1,6 @@
+<% @title = "Cat Store" %>
+<h1>Level:  <%= @site.level %></h1>
+<p>Description: <%= @site.description%></p>
+<p>Rate: <%= @site.rate%></p>
+<p>book this site:
+<%= link_to 'book this this site', new_order_url(@site)%></p>

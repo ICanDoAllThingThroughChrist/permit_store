@@ -1,0 +1,18 @@
+   <h1>tasks</h1>
+        <%= link_to "New task", new_task_path %>
+        <div id="tasks">
+          <% @tasks.each do |task| %>
+            <h2>Title: <%= link_to task.title, task %></h2>
+            <p>Description: <%= task.description %></p>
+            <p>Image: <%= image_tag(task.image) %></p>
+            <p>Size: <%= task.size %></p>
+            <p>URL: <%= task.URL %></p>
+            <% if admin %>
+            <%#!--As an administrator I want to be able to
+            add a new task to a permit" (title, description, image, size, URL 
+            to buy more from amazon or other partners)%>
+            <p><%= button_to 'Add to permit', permit_tasks_path(:task_id => task)%><p>
+            <% end %>
+             <%#= button_to 'Add to Cart', line_tasks_path(:product_id => product) %></h4>
+           <% end %>
+</div>

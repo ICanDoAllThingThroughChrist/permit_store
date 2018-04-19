@@ -1,0 +1,22 @@
+<%= form_for(@site) do |f| %>
+    <% if @site.errors.any? %>
+    <div>
+    <h2><%= pluralize(@site.errors.count, "error") %>
+    prohibited this site from being saved:</h2>
+    <ul>
+        <% @site.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+    </div>
+    <% end %>
+<p>
+<%= f.label :level %>
+<%= f.text_field :level%>
+<%= f.label :rate %>
+<%= f.text_field :rate%>
+<%= f.label :description %>
+<%= f.text_field :description%>
+</p>
+<%= f.submit %>
+<% end %>

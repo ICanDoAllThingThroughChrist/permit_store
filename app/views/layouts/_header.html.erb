@@ -1,0 +1,26 @@
+<fieldset>
+<%# binding.pry %>
+  <%if logged_in? == false %>
+        <h4> You are not logged in </h4>
+        <li><%= link_to "Sign up", new_user_path %></li>
+        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to "List of sites", sites_path %></li>
+        <li><%= link_to "New site Order", new_order_path %></li>
+    <%elsif current_user.role_id == 8 %>
+    <li><%= link_to "Purchase New site", sites_path%></li>
+    <li><%= link_to "My site Orders", orders_path %></li>
+    <li><%= link_to "Purchase New permit", permits_path %></li>
+     <li><%= link_to "My list of permits", permits_path %></li>
+    <li><%= link_to "Sign Out", logout_path %></li>
+    <%elsif current_user.role_id == 9 %>
+    <% #binding.pry %>
+    <li><%= link_to "sites Index and Description", sites_path%></li>
+    <li><%= link_to "New site Order", new_order_path %></li>
+    <li><%= link_to "My site Orders", orders_path %></li>
+    <li><%= link_to "permit Index and New permit", permits_path %></li>
+    <li><%= link_to "Admin Index", admin_path %></li>
+    <li><%= link_to "permits Index to Ship permits", permits_to_be_shipped_path%></li>
+    <li><%= link_to "Add_New_Tasks to permit", new_task_path %></li>
+    <li><%= link_to "Sign Out", logout_path %></li>
+    <% end %>
+</fieldset>

@@ -1,0 +1,9 @@
+   <h1>sites</h1>
+        <div>
+          <% @sites.each do |site| %>
+            <% #binding.pry %>
+            <h2>Level: <%= link_to "#{site.id}", site_path(site) %></h2>
+            <p>Description: <%= site.description %></p>
+            <p>Rate: <%=site.rate%>
+           <% end %>
+        </div>

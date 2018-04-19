@@ -1,0 +1,18 @@
+   <h1>permits</h1>
+        <h4><%= link_to "New permit", new_permit_path %></h4>
+        <div>
+        <% @user_permits.each do |user_permit| %>
+                <% user_permit_id= user_permit.id%>
+                <% order_id= user_permit.order.id %>
+                <% user_id= user_permit.user_id %>
+        <fieldset>
+                <p>User ID: <%= user_id %>
+                <p>Order ID:<%=link_to "#{order_id}", order_path(order_id) %></p>
+                <p>Permit ID:<%= link_to "#{user_permit_id}", permit_path(user_permit_id) %> </p>
+                <%# binding.pry %>
+                <p>Title: <%=link_to "#{user_permit.title}", permit_path(user_permit) %></p>
+        </fieldset>
+        <% end %>
+        <%#binding.pry%>
+        </div>
+        <p><%= will_paginate @user_orders %><p>

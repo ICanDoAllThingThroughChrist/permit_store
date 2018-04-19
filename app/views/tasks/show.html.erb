@@ -1,0 +1,11 @@
+<% @title = "Cat Store" %>
+<h1>Title:  <%= @task.title %></h1>
+<p>Description: <%= @task.description%></p>
+<p>Image: <%= image_tag @task.image if @task.image?%></p>
+<p>size: <%= @task.size%></p>
+<p>URL: <%= @task.URL%></p>
+<li><%= link_to "Edit task", edit_task_path(@task) %></li>
+<li><%= link_to "Delete task",
+            task_path(@task), 
+            method: :delete, 
+            data: { confirm: 'Are you sure?' } %></li> 
